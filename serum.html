@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/img/fav.png" />
+
+    <!-- Primary Meta Tags -->
+    <title>Foodles Club</title>
+    <meta name="title" content="Foodles Club">
+    <meta name="description"
+        content="A community-driven project aiming to develop a creative incubator to empower female creators and artists. Foodles come in a joyful range of colors, traits, and sizes with a collection size of 5000. Foodles Club holders can participate in exclusive events such as NFT claims, raffles, community giveaways and charity fundraisers; the community will determine our future!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://foodlesclub.app">
+    <meta property="og:title" content="Foodles Club">
+    <meta property="og:description"
+        content="A community-driven project aiming to develop a creative incubator to empower female creators and artists. Foodles come in a joyful range of colors, traits, and sizes with a collection size of 5000. Foodles Club holders can participate in exclusive events such as NFT claims, raffles, community giveaways and charity fundraisers; the community will determine our future!">
+    <meta property="og:image" content="https://foodlesclub.app/img/Foodles.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://foodlesclub.app">
+    <meta property="twitter:title" content="Foodles Club">
+    <meta property="twitter:description"
+        content="A community-driven project aiming to develop a creative incubator to empower female creators and artists. Foodles come in a joyful range of colors, traits, and sizes with a collection size of 5000. Foodles Club holders can participate in exclusive events such as NFT claims, raffles, community giveaways and charity fundraisers; the community will determine our future!">
+    <meta property="twitter:image" content="https://foodlesclub.app/img/Foodles.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/brands.min.css"
+        integrity="sha512-rQgMaFKZKIoTKfYInSVMH1dSM68mmPYshaohG8pK17b+guRbSiMl9dDbd3Sd96voXZeGerRIFFr2ewIiusEUgg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/web3@1.2.11/dist/web3.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/web3modal@1.9.0/dist/index.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"
+        type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/keccak256@latest/keccak256.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/merkletreejs@latest/merkletree.js"></script>
+
+    <script src="js/serumList.js"></script>
+    <script src="js/serum.js" type="module"></script>
+</head>
+
+<body>
+    <header>
+        <a id="icon" href="#top"><img src="img/Icon.png" alt="Foodles Club"></a>
+        <a id="logo" href="#top"><img src="img/Title.png" alt="Foodles Club"></a>
+        <div class="links"></div>
+    </header>
+    <section id="mint" class="alt">
+        <div class="container max-width">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <h2>Mint a Serum</h2>
+                </div>
+            </div>
+            <div id="connect" class="center-align">
+                <img src="img/serum.gif" alt="Foodles Serum">
+                <button class="waves-effect waves-light btn primary" id="wallet-connect">Connect Wallet</button>
+            </div>
+            <div id="minted" class="hide">
+                <h4>Congratulations!</h4>
+                <p id="success-message"></p>
+            </div>
+            <div id="soldout" class="hide">
+                <h3>You have no serums available to mint.</h3>
+            </div>
+            <div id="sale" class="hide">
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button class="waves-effect waves-light btn primary btn-large" id="mint-btn">Mint X Serums</button>
+                    </div>
+                </div>
+            </div>
+            <p class="center-align" id="message"></p>
+        </div>
+    </section>
+    <footer>
+        <div></div>
+        <span>&copy; 2022 Foodles LLC.</span>
+        <div class="links">
+            <a href="https://discord.gg/foodles">
+                <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://twitter.com/FoodlesClub">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>

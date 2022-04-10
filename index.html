@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/img/fav.png"/>
+
+    <!-- Primary Meta Tags -->
+    <title>Foodles Club</title>
+    <meta name="title" content="Foodles Club">
+    <meta name="description" content="A community-driven project aiming to develop a creative incubator to empower female creators and artists. Foodles come in a joyful range of colors, traits, and sizes with a collection size of 5000. Foodles Club holders can participate in exclusive events such as NFT claims, raffles, community giveaways and charity fundraisers; the community will determine our future!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://foodlesclub.app">
+    <meta property="og:title" content="Foodles Club">
+    <meta property="og:description" content="A community-driven project aiming to develop a creative incubator to empower female creators and artists. Foodles come in a joyful range of colors, traits, and sizes with a collection size of 5000. Foodles Club holders can participate in exclusive events such as NFT claims, raffles, community giveaways and charity fundraisers; the community will determine our future!">
+    <meta property="og:image" content="https://foodlesclub.app/img/Foodles.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://foodlesclub.app">
+    <meta property="twitter:title" content="Foodles Club">
+    <meta property="twitter:description" content="A community-driven project aiming to develop a creative incubator to empower female creators and artists. Foodles come in a joyful range of colors, traits, and sizes with a collection size of 5000. Foodles Club holders can participate in exclusive events such as NFT claims, raffles, community giveaways and charity fundraisers; the community will determine our future!">
+    <meta property="twitter:image" content="https://foodlesclub.app/img/Foodles.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/brands.min.css" integrity="sha512-rQgMaFKZKIoTKfYInSVMH1dSM68mmPYshaohG8pK17b+guRbSiMl9dDbd3Sd96voXZeGerRIFFr2ewIiusEUgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/web3@1.2.11/dist/web3.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/web3modal@1.9.0/dist/index.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"
+        type="text/javascript"></script>
+    <script src="js/app.js" type="module"></script>
+</head>
+
+<body>
+    <header>
+        <a id="icon" href="#top"><img src="img/Icon.png" alt="Foodles Club"></a>
+        <a id="logo" href="#top"><img src="img/Title.png" alt="Foodles Club"></a>
+        <div class="links">
+            <a href="#mint" class="hide">Mint</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#faq">FAQ</a>
+        </div>
+    </header>
+    <section id="top">
+        <h1 class="future">The Future is Female</h1>
+        <img id="foodles-img" src="img/Foodles.png" alt="Foodles">
+        <div class="btn-box">
+            <a class="waves-effect waves-light btn primary" href="https://discord.gg/foodles">Discord</a>
+            <button class="waves-effect waves-light btn primary hide" id="buy-btn">Mint Now</button>
+            <a class="waves-effect waves-light btn primary" href="https://opensea.io/collection/foodlesclub">OpenSea</a>
+        </div>
+    </section>
+    <div id="mint" class="hide">
+        <div class="container max-width">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <h2>Mint a Foodle</h2>
+                </div>
+            </div>
+            <div id="connect" class="center-align">
+                <img src="img/Blink.gif" alt="Foodle blink">
+                <button class="waves-effect waves-light btn primary" id="wallet-connect">Connect Wallet</button>
+            </div>
+            <div id="countdown" class="hide">
+                <h3>Not yet for sale. Come back soon.</h3>
+            </div>
+            <div id="soldout" class="hide">
+                <h3>All Foodles sold out.</h3>
+            </div>
+            <div id="minted" class="hide">
+                <h4>Congratulations!</h4>
+                <p id="success-message"></p>
+            </div>
+            <div id="sale" class="hide">
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <h4 id="fcs-left" style="margin-bottom: 0;">
+                            0 Foodles left
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <div class="meter">
+                            <span id="meterspan" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field">
+                            <label for="quantity"># of Foodles</label>
+                            <input id="quantity" type="number" value="10" min="1" max="10">
+                        </div>
+                    </div>
+                </div>
+                <div class="row hide">
+                    <div class="col s5">Include Free?</div>
+                    <div class="col s3 right-align">
+                        <div class="switch">
+                            <label>
+                                <input type="checkbox" id="free-switch">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col s4 right-align"><span id="free-left">freeMinted / 700 left</span></div>
+                </div>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button class="waves-effect waves-light btn primary btn-large" id="mint-btn">Mint</button>
+                    </div>
+                </div>
+            </div>
+            <p class="center-align" id="message"></p>
+        </div>
+    </div>
+    <div id="roadmap">
+        <div  class="container center-align">
+            <h2>Roadmap</h2>
+            <div class="phase">
+                <h4>Phase 1</h4>
+                <p>
+                    The Foodles Club is drawn on the Ethereum blockchain and they begin their journey!
+                    An unique collection of 5000 NFTs.
+                    The first 700 mints will be free.
+                </p>
+            </div>
+
+            <div class="phase">
+                <h4>Phase 2</h4>
+                <p>
+                    At 20% minted, we will airdrop 5 Foodles Club to random holders.
+                    Additionally, the will community will vote to select which charity we donate to.
+                </p>
+            </div>
+
+            <div class="phase">
+                <h4>Phase 3</h4>
+                <p>
+                    At 50% minted, we will auction off a unique 1/1 Foodle.
+                    All proceeds will be donated to a charity supporting the diversity and inclusion of women, chosen by our community.
+                </p>
+            </div>
+
+            <div class="phase">
+                <h4>Phase 4</h4>
+                <p>
+                    At 100% minted, we will develop a creative incubator to empower female creators and artists.
+                    Aspiring female artists will be able to elevate their platform and we will act as a safe space and advocate for emerging creators.
+                    Our community will be able to choose which projects we fund and help with development.
+                    We will assist them by providing marketing and guidance.
+                </p>
+            </div>
+        </div>
+    </div>
+    <section id="faq">
+        <div class="container center-align">
+            <h2>FAQ</h2>
+            <div class="phase">
+                <h4>What are Foodles?</h4>
+                <p>
+                    The Foodles Club (FC) is a collection of 5000 unique NFTs.
+                    We are a community-driven project aiming to develop a creative incubator to empower female creators and artists.
+                    We are not associated in any way from any projects we derive from.
+                </p>
+            </div>
+            <div class="phase">
+                <h4>What about Doodles?</h4>
+                <p>
+                    All of our art is handcrafted and drawn from scratch.
+                    We have unique traits.
+                    We're inspired by the Sanrio-art style, popularized in Japan.
+                    Foodles Club is not affiliated with Doodles LLC in any way.
+                </p>
+            </div>
+            <div class="phase">
+                <h4>Wen mint?</h4>
+                <p>
+                    The first 700 Foodles will be free to mint.
+                    Foodles Club will be stealth launched sometime this up-coming week, so get ready.
+                    OGs will know the exact mint time before anyone else.
+                    This will hopefully allow OGs to snag a free Foodle.
+                </p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div></div>
+        <span>&copy; 2022 Foodles LLC.</span>
+        <div class="links">
+            <a href="https://discord.gg/foodles">
+                <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://twitter.com/FoodlesClub">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>
